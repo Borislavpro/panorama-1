@@ -234,15 +234,15 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Pannellum Viewer pointing directly to local file in GitHub repo
+            // Initialize Pannellum Viewer with optimized high-detail view settings
             pannellum.viewer('panorama', {
                 "type": "equirectangular",
-                "panorama": "panorama.jpg",
+                "panorama": "https://lh3.googleusercontent.com/d/1QZXF6Mku_bBp5NMOeHoIy4cSzO0-vaIP",
                 "autoLoad": true,
                 "autoRotate": -2,
-                "hfov": 90,          
-                "maxHfov": 110,      
-                "minHfov": 40        
+                "hfov": 90,          // Оптимизиран по-фокусиран начален ъгъл
+                "maxHfov": 110,      // Ограничава максималното отдалечаване
+                "minHfov": 40        // Предпазва изображението от прекалено размазване при приближение
             });
 
             // Intersection Observer for Reveal Animations
@@ -253,7 +253,7 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.1add('active'); // Fixed class toggle
+                        entry.target.classList.add('active');
                     }
                 });
             }, observerOptions);
