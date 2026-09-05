@@ -37,7 +37,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Hero Section with Forest Background */
         .hero {
             height: 100vh;
             width: 100%;
@@ -80,7 +79,6 @@
             background-color: #f4d35e;
         }
 
-        /* Panorama Section */
         .panorama-container {
             padding: 80px 20px;
             text-align: center;
@@ -106,7 +104,6 @@
             background-color: #000;
         }
 
-        /* Info Section */
         .info-section {
             padding: 100px 20px;
             background: linear-gradient(to bottom, var(--dark-green), #254130);
@@ -140,14 +137,6 @@
             color: var(--accent-color);
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Animations */
         .fade-in {
             opacity: 0;
             animation: fadeIn 1.5s forwards ease-out;
@@ -170,14 +159,6 @@
             }
         }
 
-        /* Delay for staggered animations */
-        .hero-content p { animation-delay: 0.5s; }
-        .cta-button { animation-delay: 1s; }
-        .info-card:nth-child(1) { animation-delay: 0.2s; }
-        .info-card:nth-child(2) { animation-delay: 0.4s; }
-        .info-card:nth-child(3) { animation-delay: 0.6s; }
-
-        /* Intersection Observer based animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -189,7 +170,6 @@
             transform: translateY(0);
         }
 
-        /* Hide Pannellum attribution/logo */
         .pnn-attribution {
             display: none !important;
         }
@@ -234,18 +214,16 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Pannellum Viewer with optimized high-detail view settings
             pannellum.viewer('panorama', {
                 "type": "equirectangular",
                 "panorama": "https://lh3.googleusercontent.com/d/1QZXF6Mku_bBp5NMOeHoIy4cSzO0-vaIP",
                 "autoLoad": true,
                 "autoRotate": -2,
-                "hfov": 90,          // Оптимизиран по-фокусиран начален ъгъл
-                "maxHfov": 110,      // Ограничава максималното отдалечаване
-                "minHfov": 40        // Предпазва изображението от прекалено размазване при приближение
+                "hfov": 90,          
+                "maxHfov": 110,      
+                "minHfov": 40        
             });
 
-            // Intersection Observer for Reveal Animations
             const observerOptions = {
                 threshold: 0.1
             };
@@ -258,7 +236,6 @@
                 });
             }, observerOptions);
 
-            // Add 'reveal' class to elements we want to animate on scroll
             const elementsToReveal = document.querySelectorAll('.info-card, .section-header');
             elementsToReveal.forEach(el => {
                 el.classList.add('reveal');
